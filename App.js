@@ -1,14 +1,38 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native'
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import {TabNavigator} from './src/business/navigation/Navigation'
+
+import useCachedResources from './hooks/useCachedResources';
+
+
+import { client } from './MQTTSetup'
+
+const clientMQTT = client;
+
+const AppContainer = createAppContainer(createSwitchNavigator(
+  {
+    App: TabNavigator,
+  },
+  {
+    initialRouteName: 'App',
+  }
+));
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  const isLoadingComplete = useCachedResources();
+
+  if (!isLoadingComplete) {
+    return null;
+  } else {
+    return (
+
+      <AppContainer
+        screenProps={{ appName: 'PlanTo' }}
+      />
+    )
+
+  }
 }
 
 const styles = StyleSheet.create({
