@@ -1,0 +1,12 @@
+{
+  "name": "SWEN325A3",
+  "displayName": "SWEN325A3",
+  "expo": {
+    "name": "SWEN325A3",
+    "slug": "SWEN325A3",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
