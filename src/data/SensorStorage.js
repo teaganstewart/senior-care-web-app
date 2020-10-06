@@ -1,39 +1,42 @@
-import { createContext, useState, useEffect } from 'react';
+import React, { createContext, useEffect } from 'react';
 
 import { Plugins } from '@capacitor/core';
-import React from 'react';
 
 const { Storage } = Plugins;
 
 let SensorsContext = createContext({});
-
+let initialSensors = []
 
 // saves the sensors data to local storage
-export async function saveSensors(es) {
+export async function saveSensors(sensors) {
     await Storage.set({
         key: 'current',
-        value: JSON.stringify(es)
+        value: JSON.stringify(sensors)
     });
+}
+
+export function addToStorage(sensor) {
+    initialSensors.push(sensor)
+    saveSensors(initialSensors)
 }
 
 function SensorsContextProvider(props) {
 
-    const [initialSensors, setInitialSensors] = useState([]);
+    saveSensors([]);
 
     useEffect(() => {
 
         // checks the database for they key
-        Promise.resolve(Storage.get({ key: 'current'}).then(
+        Promise.resolve(Storage.get({ key: 'current' }).then(
             (result) => {
                 // if they key exists and has data it sets the list of sensors to the result.
                 if (typeof result.value === 'string') {
-                    setInitialSensors(JSON.parse(result.value));
-
+                    initialSensors = JSON.parse(result.value);
                 }
             },
-            (reason) => console.log("Failed to load Sensors from storage because of: " + reason)
+            (reason) => console.log("Failed to load from storage because of: " + reason)
         ));
-    }, []);
+    });
 
     return (
         <SensorsContext.Provider value={{ SensorList: initialSensors }}>{props.children}</SensorsContext.Provider>

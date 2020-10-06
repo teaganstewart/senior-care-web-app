@@ -1,14 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import {TabNavigator} from './src/business/navigation/Navigation'
 
 import useCachedResources from './hooks/useCachedResources';
+import { SensorsContextProvider } from './src/data/SensorStorage'
+ 
+import { Broker } from './network/MQTTSetup'
 
-
-import { client } from './MQTTSetup'
-
-const clientMQTT = client;
+const clientMQTT = new Broker()
 
 const AppContainer = createAppContainer(createSwitchNavigator(
   {
@@ -26,10 +26,11 @@ export default function App() {
     return null;
   } else {
     return (
-
-      <AppContainer
-        screenProps={{ appName: 'PlanTo' }}
-      />
+      <SensorsContextProvider>
+        <AppContainer
+          screenProps={{ appName: 'PlanTo' }}
+        />
+      </SensorsContextProvider>
     )
 
   }

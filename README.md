@@ -13,5 +13,6 @@ $ npm install react-native-paper <br/>
 $ npm install react-native-reanimated <br/>
 $ npm install react-native-vector-icons <br/>
 $ npm install react-native-gesture-handler <br/>
+$ npm install @capacitor/core <br/>
 <br/>
 The app should be running.

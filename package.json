@@ -8,6 +8,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@capacitor/core": "^2.4.2",
     "@react-native-community/masked-view": "^0.1.10",
     "expo": "~39.0.2",
     "expo-splash-screen": "~0.6.2",
