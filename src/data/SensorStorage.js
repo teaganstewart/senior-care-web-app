@@ -14,7 +14,14 @@ let SensorsContext = createContext({
     data: []
 });
 
-// saves the sensors data to local storage
+/**
+ * Saves the sensors data, along with other useful data for the minutes since motion update.
+ * 
+ * @param sensors The locations and their sensor updates.
+ * @param loc The location of the latest motion.
+ * @param sDate The date of the latest motion.
+ * @param sTime The time of the latest motion.
+ */
 export async function saveSensors(sensors, loc, sDate, sTime) {
     location = loc;
     date = sDate;
@@ -26,21 +33,27 @@ export async function saveSensors(sensors, loc, sDate, sTime) {
     });
 }
 
+/**
+ * Collects the sensor data from local storage, returns a context provider so that these values
+ * can be used throughout the application.
+ */
 function SensorsContextProvider(props) {
+    // stores the initial sensors, so the display and storage update.
     if(start === 1) {
         saveSensors(setLocations(), location, date, time) 
     }
+
+    // makes sure that the storage doesn't update each time the provider/consumer is used.
     start = 0;
     const [initialSensors, setInitialSensors] = useState(setLocations());
    
     useEffect(() => {
 
-        // checks the database for they key
+        // checks local storage for they key
         Promise.resolve(Storage.get({ key: 'key' }).then(
             (result) => {
-                // if they key exists and has data it sets the list of sensors to the result.
+                // if the key exists and has data it sets the list of sensors to the result.
                 if (typeof result.value === 'string') {
-
                     setInitialSensors(JSON.parse(result.value));
                 } 
             },
@@ -51,7 +64,8 @@ function SensorsContextProvider(props) {
     });
 
     return (
-        <SensorsContext.Provider value={{ data: initialSensors, activityLocation : location, activityDate: date, activityTime: time}}>{props.children}</SensorsContext.Provider>
+        <SensorsContext.Provider value={{ data: initialSensors, activityLocation : location,
+             activityDate: date, activityTime: time}}>{props.children}</SensorsContext.Provider>
     )
 }
 

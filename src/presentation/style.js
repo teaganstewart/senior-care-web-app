@@ -54,6 +54,7 @@ export const mainStyles = StyleSheet.create({
     }
 });
 
+// Sets the default style for the senior status page.
 export const homeStyles = StyleSheet.create({
     houseImage: {
         width: 305,
@@ -66,7 +67,7 @@ export const homeStyles = StyleSheet.create({
     }
 })
 
-// Sets the default style for the senior status page.
+// Sets the default style for the battery status page.
 export const batteryStyles = StyleSheet.create({
     listCard: {
         width: '98%',

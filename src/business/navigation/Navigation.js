@@ -3,16 +3,18 @@ import React from 'react';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-// Imports the required external pages 
+// Imports the required internal components 
 import SeniorStatusScreen from '../../presentation/SeniorStatusScreen'
 import BatteryStatusScreen from '../../presentation/BatteryStatusScreen'
 import StatisticsScreen from '../../presentation/StatisticsScreen';
 
-/* Provides the main bottom tab navigation through the app. Is used on the home page and creates
-navigation to the account, map and calendar pages. */
+/**
+ * Provides the main bottom tab navigation through the app. Is used on the home page and creates
+ * navigation to the home, battery status and statistics pages.
+ */
 export const TabNavigator = createBottomTabNavigator({
 
-  // Navigation to the account screen, where you can logout
+  // Navigation to the battery status screen, where you can check the status of each room's sensors
   Battery: {
     screen: BatteryStatusScreen,
     name: "Battery",
@@ -25,7 +27,7 @@ export const TabNavigator = createBottomTabNavigator({
       },
     })
   },
-  // Navigation to the map screen that shows the location of all events
+  // Navigation to the senior status screen, which displays the latest movements with graphs and images.
   Home: {
     screen: SeniorStatusScreen,
     name: "Senior Status",
@@ -38,6 +40,7 @@ export const TabNavigator = createBottomTabNavigator({
       },
     })
   },
+  // Navigation to the statisitcs screen.
   Statistics: {
     screen: StatisticsScreen,
     name: "Statistics",

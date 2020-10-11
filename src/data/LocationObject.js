@@ -1,9 +1,16 @@
+/**
+ * An object that stores 1 of 5 locations in a house. Stores motion detected in the room and the battery
+ * of the sensor corresponding to that room.
+ * 
+ * @author Teagan Stewart, 300407769
+ */
 export class LocationObject {
 
     motions = [];
     latestMotion = ""
     battery = "??"
 
+    // Constructs a location, with an unknown battery and no previous motions.
     constructor(location) {
         this.location = location;
     }
@@ -28,19 +35,22 @@ export class LocationObject {
         return this.motions;
     }
 
-    setLatestMotion(sLatestMotion) {
-        this.latestMotion = sLatestMotion;
-    }
+    // setLatestMotion(sLatestMotion) {
+    //     this.latestMotion = sLatestMotion;
+    // }
 
-    getLatestMotion() {
-        return this.latestMotion;
-    }
+    // getLatestMotion() {
+    //     return this.latestMotion;
+    // }
 
     toString() {
         return "Latest motion in " + location 
     }
 }
 
+/**
+ * Sets the initial location objects, for storage of sensor objects.
+ */
 export function setLocations() {
     let locations = []
 

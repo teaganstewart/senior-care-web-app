@@ -1,15 +1,27 @@
 import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
+
 import { FlatList, ScrollView } from 'react-native-gesture-handler'
 import { Card } from 'react-native-paper'
+
 import { loadBatteryImage } from '../data/ImageLoader'
 import { SensorsContextConsumer } from '../data/SensorStorage'
 
 import { mainStyles, batteryStyles } from './style'
 
+/**
+ * Creates the screen and helper methods for the battery status screen. Allows the user to easily see
+ * what the battery levels of the sensors in the rooms are like.
+ */
 class BatteryStatusScreen extends Component {
-    renderItem = ({ item }) => {
 
+    /**
+     * A method that renders each element in my FlatList. Displays each location and their battery in
+     * an easy to read card format.
+     * 
+     * @param item The current item in the location list that is being displayed.
+     */
+    renderItem = ({ item }) => {
         return (
             <View>
                 <Card style={batteryStyles.listCard}>
@@ -23,7 +35,9 @@ class BatteryStatusScreen extends Component {
         );
     };
 
-
+    /**
+     * The render method that displays the battery page, and it's elements.
+     */
     render() {
         return (
             <View style={mainStyles.container}>
@@ -36,6 +50,7 @@ class BatteryStatusScreen extends Component {
 
                 <ScrollView style={batteryStyles.listView}>
 
+                    {/* The context consumer accesses the sensor locations and their current battery. */}
                     <SensorsContextConsumer>
 
                         {(value) =>
