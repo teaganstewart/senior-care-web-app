@@ -14,5 +14,8 @@ $ npm install react-native-reanimated <br/>
 $ npm install react-native-vector-icons <br/>
 $ npm install react-native-gesture-handler <br/>
 $ npm install @capacitor/core <br/>
+$ npm i react-push-notification <br/>
+$ npm install react-native-chart-kit <br/>
+$ npm install react-native-svg <br/>
 <br/>
 The app should be running.

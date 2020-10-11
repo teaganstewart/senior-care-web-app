@@ -1,4 +1,3 @@
-
 // Stores all the information for the sensor data so that they can be put into storage in JSON form.
 export class SensorObject {
 
@@ -29,10 +28,10 @@ export class SensorObject {
     }
     
     isMotion() {
-        if(this.motion === 0) {
+        if(this.motion === '0') {
             return false;
         }
-        if(this.motion === 1) {
+        if(this.motion === '1') {
             return true;
         }
     }

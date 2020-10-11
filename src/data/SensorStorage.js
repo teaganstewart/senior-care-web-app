@@ -1,49 +1,60 @@
-import React, { createContext, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
 import { Plugins } from '@capacitor/core';
+import { setLocations } from './LocationObject';
 
 const { Storage } = Plugins;
 
-let SensorsContext = createContext({});
-let initialSensors = []
+let start = 1;
+let location = ""
+let date = "";
+let time = new Date();
+
+let SensorsContext = createContext({
+    data: []
+});
 
 // saves the sensors data to local storage
-export async function saveSensors(sensors) {
+export async function saveSensors(sensors, loc, sDate, sTime) {
+    location = loc;
+    date = sDate;
+    time = sTime;
+
     await Storage.set({
-        key: 'current',
+        key: 'key',
         value: JSON.stringify(sensors)
     });
 }
 
-export function addToStorage(sensor) {
-    initialSensors.push(sensor)
-    saveSensors(initialSensors)
-}
-
 function SensorsContextProvider(props) {
-
-    saveSensors([]);
-
+    if(start === 1) {
+        saveSensors(setLocations(), location, date, time) 
+    }
+    start = 0;
+    const [initialSensors, setInitialSensors] = useState(setLocations());
+   
     useEffect(() => {
 
         // checks the database for they key
-        Promise.resolve(Storage.get({ key: 'current' }).then(
+        Promise.resolve(Storage.get({ key: 'key' }).then(
             (result) => {
                 // if they key exists and has data it sets the list of sensors to the result.
                 if (typeof result.value === 'string') {
-                    initialSensors = JSON.parse(result.value);
-                }
+
+                    setInitialSensors(JSON.parse(result.value));
+                } 
             },
             (reason) => console.log("Failed to load from storage because of: " + reason)
         ));
+
+
     });
 
     return (
-        <SensorsContext.Provider value={{ SensorList: initialSensors }}>{props.children}</SensorsContext.Provider>
+        <SensorsContext.Provider value={{ data: initialSensors, activityLocation : location, activityDate: date, activityTime: time}}>{props.children}</SensorsContext.Provider>
     )
 }
 
 let SensorsContextConsumer = SensorsContext.Consumer;
-
 
 export { SensorsContext, SensorsContextProvider, SensorsContextConsumer }

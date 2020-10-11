@@ -22,7 +22,8 @@ export const mainStyles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 26,
         paddingBottom: 10,
-        backgroundColor: "#15bf4b",
+        backgroundColor: "pink",
+
         borderBottomWidth: 1,
         borderBottomColor: 'black',
 
@@ -45,11 +46,73 @@ export const mainStyles = StyleSheet.create({
     title: {
         fontSize: 30,
         fontFamily: 'bebas-neue',
-        marginLeft: 28,
+        marginLeft: 20,
         marginTopTop: 20,
     },
     backButton: {
         width: 20
+    }
+});
+
+export const homeStyles = StyleSheet.create({
+    houseImage: {
+        width: 305,
+        height: 215, 
+        alignSelf: 'center'
+    },
+    viewStyle: { 
+        width: '98%', 
+        marginLeft: '1%'
+    }
+})
+
+// Sets the default style for the senior status page.
+export const batteryStyles = StyleSheet.create({
+    listCard: {
+        width: '98%',
+        borderWidth: 2,
+        borderColor: 'black',
+        padding: 5,
+        marginBottom: 20,
+    },
+    listView: {
+        paddingTop: 20,
+        width: '98%',
+        borderWidth: 2,
+        borderColor: 'black',
+        paddingLeft: '1.7%',
+        marginTop: -10,
+        backgroundColor: 'white',
+    },
+    cardDate: {
+        fontFamily: 'bebas-neue',
+        opacity: 0.4,
+        fontSize: 16,
+        marginLeft: 1,
+        marginTop: 2,
+    },
+    batteryTitle: {
+        fontFamily: 'bebas-neue',
+        opacity: 0.4,
+        fontSize: 26,
+        marginLeft: 1,
+        marginTop: 2,
+    },
+    batteryPercentageText: {
+        fontFamily: 'bebas-neue',
+        fontSize: 26,
+        marginTop: -75,
+        marginRight: 160,
+        alignSelf: 'flex-end',
+        paddingVertical: 18,
+        paddingTop: 26
+    },
+    batteryImage: {
+        width: 120,
+        height: 60, 
+        marginTop: -33, 
+        marginRight: 20, 
+        alignSelf: "flex-end",
     }
 });
 
