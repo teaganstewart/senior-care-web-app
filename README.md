@@ -17,5 +17,7 @@ $ npm install @capacitor/core <br/>
 $ npm i react-push-notification <br/>
 $ npm install react-native-chart-kit <br/>
 $ npm install react-native-svg <br/>
+$ npm install react-native-progress --save <br/>
+$ npm install react-native-svg-charts <br/>
 <br/>
 The app should be running.

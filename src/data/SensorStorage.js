@@ -9,6 +9,8 @@ let start = 1;
 let location = ""
 let date = "";
 let time = new Date();
+let activeData = [0, 0, 0, 0, 0]
+
 
 let SensorsContext = createContext({
     data: []
@@ -22,10 +24,11 @@ let SensorsContext = createContext({
  * @param sDate The date of the latest motion.
  * @param sTime The time of the latest motion.
  */
-export async function saveSensors(sensors, loc, sDate, sTime) {
+export async function saveSensors(sensors, loc, sDate, sTime, sData) {
     location = loc;
     date = sDate;
     time = sTime;
+    activeData = sData;
 
     await Storage.set({
         key: 'key',
@@ -40,7 +43,7 @@ export async function saveSensors(sensors, loc, sDate, sTime) {
 function SensorsContextProvider(props) {
     // stores the initial sensors, so the display and storage update.
     if(start === 1) {
-        saveSensors(setLocations(), location, date, time) 
+        saveSensors(setLocations(), location, date, time, [0,0,0,0,0]) 
     }
 
     // makes sure that the storage doesn't update each time the provider/consumer is used.
@@ -64,7 +67,7 @@ function SensorsContextProvider(props) {
     });
 
     return (
-        <SensorsContext.Provider value={{ data: initialSensors, activityLocation : location,
+        <SensorsContext.Provider value={{ data: initialSensors, motionData: activeData, activityLocation : location,
              activityDate: date, activityTime: time}}>{props.children}</SensorsContext.Provider>
     )
 }

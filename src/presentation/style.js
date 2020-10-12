@@ -59,12 +59,33 @@ export const homeStyles = StyleSheet.create({
     houseImage: {
         width: 305,
         height: 215, 
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     viewStyle: { 
         width: '98%', 
         marginLeft: '1%'
-    }
+    },
+    motionTitle: {
+        fontFamily: 'bebas-neue',
+        fontSize: 20,
+        marginLeft: 1,
+        marginTop: 2,
+    },
+    houseCard: {
+        width: '98%',
+        borderWidth: 2,
+        borderColor: 'black',
+        padding: 20,
+        marginBottom: 20,
+    },
+    listCard: {
+        width: '98%',
+        borderWidth: 2,
+        borderColor: 'black',
+        padding: 10,
+        marginBottom: 20,
+    },
+
 })
 
 // Sets the default style for the battery status page.
@@ -76,6 +97,16 @@ export const batteryStyles = StyleSheet.create({
         padding: 5,
         marginBottom: 20,
     },
+
+    listCard2: {
+        width: '98%',
+        borderWidth: 2,
+        borderColor: 'black',
+        padding: 5,
+        marginBottom: 20,
+        backgroundColor: 'pink',
+        paddingVertical: 40
+    },
     listView: {
         paddingTop: 20,
         width: '98%',
@@ -85,9 +116,22 @@ export const batteryStyles = StyleSheet.create({
         marginTop: -10,
         backgroundColor: 'white',
     },
-    cardDate: {
+    cardText: {
         fontFamily: 'bebas-neue',
         opacity: 0.4,
+        fontSize: 16,
+        marginLeft: 1,
+        marginTop: 2,
+    },
+    cardSmallText: {
+        fontFamily: 'source-sans',
+        fontSize: 14,
+        marginLeft: 1,
+        marginTop: 2,
+        paddingBottom: 10,
+    },
+    cardTitle: {
+        fontFamily: 'bebas-neue',
         fontSize: 16,
         marginLeft: 1,
         marginTop: 2,

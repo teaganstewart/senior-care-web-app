@@ -19,6 +19,8 @@ export class Broker {
     this.latestActivity = ""
     this.date = "";
     this.time = new Date()
+    // the data that is used in the graphs.
+    this.dataSet = [0, 0, 0, 0, 0];
 
     // Connects to the MQTT Broker using websockets
     this.client = new Client({ uri: 'ws://test.mosquitto.org:8080/swen325/a3', clientId: 'clientId' });
@@ -58,13 +60,23 @@ export class Broker {
         this.locations[index].addMotion(se);
         this.date = se.getDate()
         this.time = se.getTime();
-
+        this.updateData();
       }
 
+      this.locations[index].addUpdate(se);
+
       // saves the new list of updates to local storage
-      saveSensors(this.locations, this.latestActivity, this.date, this.time)
+      saveSensors(this.locations, this.latestActivity, this.date, this.time, this.dataSet)
     });
 
+  }
+
+  updateData() {
+    console.log(this.locations[0].getNoMotions())
+    this.dataSet = [this.locations[0].getNoMotions(), this.locations[1].getNoMotions(), 
+    this.locations[2].getNoMotions(), this.locations[3].getNoMotions(), 
+    this.locations[4].getNoMotions()];
+         
   }
 
   // Triggers the connection to the MQTT broker, allows the client to recieve messages and disconnect.

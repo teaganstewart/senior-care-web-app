@@ -7,7 +7,7 @@
 export class LocationObject {
 
     motions = [];
-    latestMotion = ""
+    updates = [];
     battery = "??"
 
     // Constructs a location, with an unknown battery and no previous motions.
@@ -31,17 +31,21 @@ export class LocationObject {
         this.motions.push(motion)
     }
 
+    getUpdates() {
+        return this.updates;
+    }
+
+    addUpdate(update) {
+        this.updates.push(update);
+    }
+
     getMotions() {
         return this.motions;
     }
 
-    // setLatestMotion(sLatestMotion) {
-    //     this.latestMotion = sLatestMotion;
-    // }
-
-    // getLatestMotion() {
-    //     return this.latestMotion;
-    // }
+    getNoMotions() {
+        return this.motions.length;
+    }
 
     toString() {
         return "Latest motion in " + location 
