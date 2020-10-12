@@ -19,5 +19,6 @@ $ npm install react-native-chart-kit <br/>
 $ npm install react-native-svg <br/>
 $ npm install react-native-progress --save <br/>
 $ npm install react-native-svg-charts <br/>
+$ npm install react-native-tab-view <br/>
 <br/>
 The app should be running.

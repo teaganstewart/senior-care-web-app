@@ -7,6 +7,10 @@ import { Card } from 'react-native-paper'
 import { SensorsContextConsumer } from '../data/SensorStorage'
 import { batteryStyles } from '../presentation/style'
 
+/**
+ * The first way of displaying the motion data. Provides a line graph on the statistic page, which 
+ * plots the number of motions detected in a room compared to the other rooms.
+ */
 class LineGraph extends Component {
     state = {
         // sets the settings for the graphs.
@@ -25,6 +29,9 @@ class LineGraph extends Component {
         },
     }
 
+    /**
+     * Renders the line graph for the statistics page.
+     */
     render() {
         return (
             <View>
@@ -38,6 +45,7 @@ class LineGraph extends Component {
                                         labels: ["Living", "Kitchen", "Dining", "Toilet", "Bedroom"],
                                         datasets: [
                                             {
+                                                // a list of integers e.g [0,0,0,0] for no motion
                                                 data: value.motionData,
                                                 color: (opacity = 1) => `black`,
                                                 strokeWidth: 2

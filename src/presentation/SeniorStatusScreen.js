@@ -35,6 +35,7 @@ class SeniorStatusScreen extends Component {
                     <Text style={batteryStyles.cardTitle}> {item.location} </Text>
                     <Text style={batteryStyles.cardSmallText}> {"Movements detected: " + item.motions.length} </Text>
 
+                    {/* Renders the motion graph for the current location. */}
                     <RoomGraph location ={item.location} updates={item.updates}/>
                 </Card>
             </View>

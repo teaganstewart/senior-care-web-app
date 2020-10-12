@@ -49,9 +49,13 @@ export const mainStyles = StyleSheet.create({
         marginLeft: 20,
         marginTopTop: 20,
     },
-    backButton: {
-        width: 20
-    }
+    statisticsSubTitle: {
+        fontSize: 22,
+        fontFamily: 'bebas-neue',
+        alignSelf: 'center',
+        paddingVertical: 20
+        
+    },
 });
 
 // Sets the default style for the senior status page.
@@ -105,7 +109,17 @@ export const batteryStyles = StyleSheet.create({
         padding: 5,
         marginBottom: 20,
         backgroundColor: 'pink',
-        paddingVertical: 40
+        paddingVertical: 40,
+        marginBottom: 20,
+    },
+    listCard3: {
+        width: '98%',
+        borderWidth: 2,
+        borderColor: 'black',
+        backgroundColor: 'pink',
+        padding: '2%',
+        paddingBottom: 0,
+        marginBottom: 20,
     },
     listView: {
         paddingTop: 20,

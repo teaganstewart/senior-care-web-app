@@ -43,7 +43,7 @@ export class Broker {
   // Triggers when a message is recieved by the broker, filters and stores the accessed information.
   recieve() {
     this.client.on('messageReceived', (message) => {
-      console.log(message.payloadString)
+      //console.log(message.payloadString)
 
       // creates a new sensor object with the update
       let se = new SensorObject(message.payloadString)
