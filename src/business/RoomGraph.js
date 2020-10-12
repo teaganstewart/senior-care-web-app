@@ -77,7 +77,7 @@ class RoomGraph extends Component {
             <View>
 
                 <LineChart
-                    style={{ fontFamily: 'bebas-neue', marginLeft: '9%', paddingBottom: 10 }}
+                    style={{ fontFamily: 'bebas-neue', marginLeft: '2%', paddingBottom: 10 }}
                     data={
                         {
                             labels: this.state.labelTypes,
