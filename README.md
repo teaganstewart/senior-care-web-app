@@ -1,4 +1,11 @@
-This is Teagan Stewart's solo implementation of my Assignment Two SWEN325 App in React Native. Originally was in a group, but we decided to work solo.
+## Senior Care Application - Internet of Things
+
+This repository is a senior care web application I created for my Mobile Development course at Victoria University of Wellington. It is mainly web-based but can be deployed on mobile phones also. During development, I  worked with React Native and Javascript. <br>
+
+The assignment aimed to teach us about the 'Internet of Things' (IoT). Our University set up fake 'sensors' that tracked a fake senior's movements. Each sensor supplied us information every 10 seconds: containing the room, time, battery life and if any motion was detected. <br>
+
+In my application, I used these movements to analyse the activity of the senior. I used the sensor information to track motion in rooms over time, displaying where the senior was last detected, and where they had been previously. A tab displays the battery life of the sensors. The final page analysed the information into simple graphs: tracking comparisons of total movements in each room, possible concerns with the sensors and more. 
+
 
 Download my project
 Place it into a minimal ionic react project
