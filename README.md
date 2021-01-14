@@ -8,6 +8,7 @@ In my application, I used these movements to analyse the activity of the senior.
 
 
 <b>If you would like to view my project, here are the steps: </b> <br>
+
  0. You will need Node.js to run using npm
  1. Download my project
  2. Place it into a minimal ionic react project
