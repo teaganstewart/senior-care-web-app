@@ -98,7 +98,7 @@ class SeniorStatusScreen extends Component {
 
                                     {/* If the number of minutes since the last motion is equal to 5, trigger the warning notification. */}
                                     {(Math.floor(((Math.floor(new Date().getTime() / 1000) -
-                                        Math.floor(Date.parse(value.activityDate + "T" + value.activityTime) / 1000))) / 60) === 5) ? this.triggerNotification() : <> </>}
+                                        Math.floor(Date.parse(value.activityDate + "T" + value.activityTime) / 1000)))) === 5) ? this.triggerNotification() : <> </>}
 
                                     {/* The display for the location of the latest motion. */}
                                     <Image source={loadHouseImage(value.activityLocation)} style={homeStyles.houseImage} />
