@@ -6,7 +6,7 @@ The assignment aimed to teach us about the 'Internet of Things' (IoT). Our Unive
 
 In my application, I used these movements to analyse the activity of the senior. I used the sensor information to track motion in rooms over time, displaying where the senior was last detected, and where they had been previously. A tab displays the battery life of the sensors. The final page analysed the information into simple graphs: tracking comparisons of total movements in each room, possible concerns with the sensors and more. 
 
-<b>If you would like to view my project, here are the steps: </b> <br>
+<b>My project no longer works as the socket we were using for the simulated sensor is closed now. There are screenshots of the working application below. If you would like to view my project (code or running it), here are the steps: </b> <br>
 
  0. You will need Node.js to run using npm
  1. Download my project
