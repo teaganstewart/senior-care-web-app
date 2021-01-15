@@ -6,7 +6,6 @@ The assignment aimed to teach us about the 'Internet of Things' (IoT). Our Unive
 
 In my application, I used these movements to analyse the activity of the senior. I used the sensor information to track motion in rooms over time, displaying where the senior was last detected, and where they had been previously. A tab displays the battery life of the sensors. The final page analysed the information into simple graphs: tracking comparisons of total movements in each room, possible concerns with the sensors and more. 
 
-
 <b>If you would like to view my project, here are the steps: </b> <br>
 
  0. You will need Node.js to run using npm
@@ -30,5 +29,17 @@ In my application, I used these movements to analyse the activity of the senior.
     $ npm install react-native-progress --save <br/>
     $ npm install react-native-svg-charts <br/>
     $ npm install react-native-tab-view <br/>
-<br/>
-The app should be running.
+
+The app should be running. <br>
+
+<b>The latest motion shown on a house map.</b>
+![Alt text](/photos/lastMotion.jpg?raw=true "Latest Motion House Map") <br>
+
+<b>Shows where the senior spends most of their time. Contained on the statistics page.</b>
+![Alt text](/photos/mostSpent.jpg?raw=true "Most Time Spent Room") <br>
+
+<b>Shows the difference in total movements in different rooms.</b>
+![Alt text](/photos/movementsByRoom.jpg?raw=true "Comparison of Total Movements by Room") <br>
+
+<b>Shows movements in a room over time.</b>
+![Alt text](/photos/roomTime.jpg?raw=true "Motions over Time in a Room") <br>
